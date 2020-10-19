@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+	<div class='container'>
+		<div class="d-flex justify-content-center pt-3"><h1> Punctuation Correction </h1></div>
+		<div class="d-flex justify-content-center pb-5"><h3>Capstone Project, Summer'20 </h3></div>
+		<form method="post" id="form">
+			<div class="form-row">
+				<div class="col-3">
+					<label for="lang">Language:</label>
+					<select class="form-control" id="lang">
+						<option value="Bangla">Bangla</option>
+						<!-- <option value="English">English</option>
+					  	<option value="Mandarin">Mandarin</option> -->
+					 </select>
+				</div>
+				<div class="col-4">
+					<label for="model">Model:</label>
+					<select class="form-control" id="model">
+						<option value="BERT_PUNCT">Bi-RNN</option>
+						
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="input_text">Enter sentence:</label>
+				<textarea class="form-control" rows="5" id="input_text"></textarea>
+			</div>
+			<div class="form-group">
+				<label for="output_text">Output:</label>
+				<div id="editor"></div>
+				<!-- <textarea readonly class="form-control" rows="5" id="output_text"></textarea> -->
+			</div>
+			<button type="button" id="punctuate" class="btn btn-primary">Punctuate</button>
+		</form>
+	</div>
+		
+{% endblock %}
