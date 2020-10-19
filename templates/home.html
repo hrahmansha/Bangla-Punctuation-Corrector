@@ -8,7 +8,7 @@
 		<form method="post" id="form">
 			<div class="form-row">
 				<div class="col-3">
-					<label for="lang">Language:</label>
+					<label for="lang" class="font-weight-bold">Language:</label>
 					<select class="form-control" id="lang">
 						<option value="Bangla">Bangla</option>
 						<!-- <option value="English">English</option>
@@ -16,24 +16,62 @@
 					 </select>
 				</div>
 				<div class="col-4">
-					<label for="model">Model:</label>
+					<label for="model" class="font-weight-bold">Model:</label>
 					<select class="form-control" id="model">
 						<option value="BERT_PUNCT">Bi-RNN</option>
 						
 					</select>
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="input_text">Enter sentence:</label>
-				<textarea class="form-control" rows="5" id="input_text"></textarea>
+			<div >
+				<div class="form-group">
+					<label for="input_text" class="font-weight-bold">Enter sentence:</label>
+					<textarea class="form-control" rows="5" id="input_text"></textarea>
+				</div>
+				<button type="button" id="punctuate" class="btn btn-primary">Punctuate</button>
 			</div>
 			<div class="form-group">
-				<label for="output_text">Output:</label>
+				<label for="output_text" class="font-weight-bold" >Output:</label>
 				<div id="editor"></div>
 				<!-- <textarea readonly class="form-control" rows="5" id="output_text"></textarea> -->
 			</div>
-			<button type="button" id="punctuate" class="btn btn-primary">Punctuate</button>
 		</form>
 	</div>
 		
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script>
+
+			$( document ).ready(function() {
+				
+
+				$('#editor').html('');
+				$('#input_text').off('keyup');
+				$('#punctuate').removeAttr("disabled");
+				$('#punctuate').on('click',function(){
+					var txt = $('#input_text').val();
+					console.log(txt.length);
+					$.ajax({
+						type: 'POST',
+						url: '/punctuation',
+						data: {input_text: txt}
+					}).done(addShow);
+				});
+			});
+			
+
+
+			function addShow(data) {
+				console.log(data);
+		    	var displayText = "";
+				displayText += "<p>"+data+"</p>"
+				console.log(displayText.length);
+				$('#editor').html(displayText);
+		    }
+		    
+
+
+		    
+		    //$('#form').on('submit', addSubmit);
+		</script>
 {% endblock %}
