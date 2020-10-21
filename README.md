@@ -13,7 +13,7 @@ Please visit **[here]()** to read about training stage
 
 ## Testing Interface
 
-We have used Flask API as a lightweight python framework to deploy a testing interface. Screenshots along with test case are given below. We intentionally put the restored punctuation 
+We have used Flask API as a lightweight python framework to create a testing interface. Screenshots along with test case are given below. We intentionally put the restored punctuation 
 with their name to identify model output.
 <p align = "center">
     <img src = "ss1.PNG">
