@@ -1,6 +1,6 @@
 # Bangla-Punctuation-Corrector
 
-This project focuses on restoring punctuation from Bangla text. We have prepared this as our "Final Year Design Project". The project contains two major part: <br>
+This project focuses on restoring punctuation from Bangla text. We have prepared this as our "Final Year Design Project" course work. The project contains two major part: <br>
 1. Prepare and train a model  
 2. Deploy and create an application interface for testing.
 <a/>
