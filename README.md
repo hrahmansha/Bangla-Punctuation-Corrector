@@ -30,7 +30,7 @@ with their name to identify model output.
 7. Play :)
 
 ### Tools for Interface
-- **[Flask](https://www.djangoproject.com/)**
+- **[Flask](https://flask.palletsprojects.com/en/1.1.x/)**
 - **[Python 3.7.9](https://www.python.org/)**
 - **[Jquery](https://jquery.com/)**
 - HTML, BOOTSTRAP
