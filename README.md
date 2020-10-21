@@ -4,7 +4,7 @@ This project focuses on restoring punctuation from Bangla text. We have prepared
 1. Prepare and train a model  
 2. Deploy and create an application interface for testing.
 <a/>
-It was quite challenging to decide the 1st part as there were no existing work related to this task. After investigating some deep learning model(mainly based on NLP) we choose Bi-Directional Recurrent Neural Network (GRU) with Attention mechanism as our base model. Our accurecy was not so high, but it gives us a threshold for any future 
+It was quite challenging to decide the 1st part as there were no existing work related to this task for Bangla. After investigating some deep learning model(mainly based on NLP) we choose Bi-Directional Recurrent Neural Network (GRU) with Attention mechanism as our base model. Our accurecy was not so high, but it gives us a threshold for any future 
 work related to bangla punctuation task. We have also performed sevaral postprocessing technique to increase our machine output accurecy.
 
 ## Training
