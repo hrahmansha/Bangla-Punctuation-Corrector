@@ -25,6 +25,7 @@ def convert_punctuation_to_readable(punct_token):
 def restore(output_file, text, word_vocabulary, reverse_punctuation_vocabulary, model):
     i = 0
     print("Testing Model...")
+    total_punctuation = len(data.PUNCTUATION_VOCABULARY)
     with codecs.open(output_file, 'w', 'utf-8') as f_out:
         while True:
 
@@ -41,10 +42,11 @@ def restore(output_file, text, word_vocabulary, reverse_punctuation_vocabulary, 
 
             last_eos_idx = 0
             punctuations = []
+
             for y_t in y:
 
                 p_i = np.argmax(tf.reshape(y_t, [-1]))
-                punctuation = reverse_punctuation_vocabulary[p_i]
+                punctuation = reverse_punctuation_vocabulary[p_i%total_punctuation]
 
                 punctuations.append(punctuation)
 
@@ -69,7 +71,7 @@ def restore(output_file, text, word_vocabulary, reverse_punctuation_vocabulary, 
             i += step
 
 def predict(x, model):
-    return tf.nn.softmax(net(x))
+    return tf.nn.softmax(model(x))
 
 if __name__ == "__main__":
 
