@@ -1,6 +1,6 @@
 from flask import Flask, render_template,request, jsonify, json
 import logging
-import play_with_model, models, data, main
+import play_with_model, models, data, main, postprocess
 import numpy as np
 import re
 
@@ -17,10 +17,14 @@ def hello():
 @app.route('/punctuation',methods=['POST'])
 def punctuate():
     text = request.form.get('input_text',0,type=str)
+    is_process = request.form.get('post_process',0,type=str)
+    print("is process:", is_process)
     print("text: " , text)
 
     punctuated_data = punctuate(text)
     print(punctuated_data)
+    if(is_process=="1"):
+        punctuated_data = postprocess.postProcess3(punctuated_data, 0, 3, 0, 0)
     return jsonify(punctuated_data)
 
 def punctuate(text_data):

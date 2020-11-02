@@ -25,12 +25,12 @@
 			</div>
 			<div class="p-3">
 				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="onlineButton" name="algoButton" class="custom-control-input">
-					<label class="custom-control-label" for="onlineButton">With Postprocess</label>
+					<input type="radio" id="withPost" name="algoButton" class="custom-control-input">
+					<label class="custom-control-label" for="withPost">With Postprocess</label>
 		   		</div>
 				<div class="custom-control custom-radio custom-control-inline">
-					<input type="radio" id="offlineButton" name="algoButton" class="custom-control-input">
-					<label class="custom-control-label" for="offlineButton">Without Postprocess</label>
+					<input type="radio" id="withoutPost" name="algoButton" class="custom-control-input">
+					<label class="custom-control-label" for="withoutPost">Without Postprocess</label>
 				</div>
 			</div>
 			<div>
@@ -54,17 +54,23 @@
 
 			$( document ).ready(function() {
 				
-
+				
 				$('#editor').html('');
 				$('#input_text').off('keyup');
 				$('#punctuate').removeAttr("disabled");
 				$('#punctuate').on('click',function(){
 					var txt = $('#input_text').val();
+					var isProcess = "0";
+					if($('#withPost').prop("checked"))
+					{
+						isProcess = "1";
+						console.log("Hello");
+					}
 					console.log(txt.length);
 					$.ajax({
 						type: 'POST',
 						url: '/punctuation',
-						data: {input_text: txt}
+						data: {input_text: txt, post_process: isProcess}
 					}).done(addShow);
 				});
 			});

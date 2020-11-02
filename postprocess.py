@@ -7,6 +7,26 @@ commaWord = ["যে","হ্যাঁ","ওহ","করি","হ্যা","ক
 periodWord = ["না","হবে","হয়েছে","হয়","পারে","নেই","হচ্ছে","ছিল","যায়","নয়","থাকে","রয়েছে","জন্য","যাচ্ছে","যাবে"]
 exclamWord = ["যাও","করো","দাও","কর","চলো","থামো","করুন","হেই","আসো","বাবা","জলদি","খোদা","হও","থাকো","মা"]
 
+
+def postProcess3(input_text, queslimit, commalimit, periodlimit, exclamlimit):
+    lines = input_text
+    
+    words = lines.split()
+    length = len(words)
+    text = ""
+    for i in range(length):
+        word = words[i]
+        text += word+" "
+        if word in commaWord[:commalimit]:
+            if i == (length-1):
+                text += ",COMMA "
+            elif words[i+1] in puncMapp:
+                words[i+1] = ",COMMA"
+            else :
+                text += ",COMMA "
+    return text
+
+
 def postProcess(input, output, queslimit, commalimit, periodlimit, exclamlimit):
     with open(input, "r") as myfile:
         lines = myfile.readlines()
