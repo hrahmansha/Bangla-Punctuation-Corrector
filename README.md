@@ -9,7 +9,7 @@ work related to bangla punctuation task. We have also performed sevaral postproc
 
 ## Training
 
-Please visit **[here](https://github.com/HabiburRahmanShamim/BiRNN-with-Attention-for-Bangla-Punctuation-Restoration)** to read about training stage
+Please visit **[here](https://github.com/HabiburRahmanShamim/BiRNN-with-Attention-for-Bangla-Punctuation-Restoration)** to read about training stage (Will be pulished soon)
 
 ## Testing Interface
 
